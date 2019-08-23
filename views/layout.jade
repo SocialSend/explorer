@@ -95,11 +95,6 @@ html
               a.navbar-link(href='/') 
                 span.glyphicon.glyphicon-search
                 span.menu-text #{settings.locale.menu_explorer}
-            if settings.heavy == true
-              li#reward
-                a.navbar-link(href='/reward')
-                  span.fa.fa-star
-                  span.menu-text #{settings.locale.menu_reward}
             if settings.display.movement == true
               li#movement 
                 a.navbar-link.loading(href='/movement') 
