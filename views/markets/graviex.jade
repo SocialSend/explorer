@@ -26,11 +26,11 @@ block market_view
               td.hidden-xs #{marketdata.data.summary.bid}
               td.hidden-xs #{marketdata.data.summary.ask}
               td.hidden-xs #{marketdata.data.summary.last}
-              - var cryptopia_change =  (marketdata.data.summary.change).toFixed(4);
-              if cryptopia_change >= 0
-                td.success +#{cryptopia_change} %
+              - var graviex_change =  (marketdata.data.summary.change).toFixed(4);
+              if graviex_change >= 0
+                td.success +#{graviex_change} %
               else
-                td.danger #{cryptopia_change} %
+                td.danger #{graviex_change} %
   .row
     .col-md-6.col-xs-12
       .panel.panel-default
