@@ -37,6 +37,22 @@ if (settings.heavy != true) {
     'getmaxvote', 'getphase', 'getreward', 'getnextrewardestimate', 'getnextrewardwhenstr',
     'getnextrewardwhensec', 'getsupply', 'gettxoutsetinfo']);
 }
+
+//SocialSend Wallet feed
+app.use('/feed/json.php', function(req,res){
+ res.send({status:"ok",data:["http://socialsend.info/feed/img/whitepaper.jpg","http://socialsend.info/feed/img/oot.jpg","http://socialsend.info/feed/img/ohmc.jpg","http://socialsend.info/feed/img/Team_Profile_1.png"]});
+});
+
+app.use('/feed/annjson.php', function(req,res){
+ res.send({status:"ok",data:[{title:"New Whitepaper is out",info:"Social Send whitepaper v2.0 is out now. Whitepaper will be updated as the project continuous. Check it now!",url:"http://socialsend.info/feed/img/whitepaper.jpg",link:"https://socialsend.io/wp-content/uploads/2018/10/whitePaper_v2_final.pdf"},{title:"Get ready for your OOT airdrops.",info:"Get ready for your OOT airdrops. Make sure you have at least 10 SENDs on SEND platform",url:"http://socialsend.info/feed/img/oot.jpg",link:"https://socialsend.net/"},{title:"Be ready for OHM Airdrop!",info:"OHM airdrop will take place on 5th of October. Make sure you are holding at least 10 SENDs on Social Send platform to participate!",url:"http://socialsend.info/feed/img/ohmc.jpg",link:"https://socialsend.net/"},{title:"Public info of Social Send Team",info:"We are proud to announce the release of Social Send team sheet to our community. We are now officially public!",url:"http://socialsend.info/feed/img/Team_Profile_1.png",link:"https://cdn.discordapp.com/attachments/340849982401937410/470762232112873472/teamProfile.pdf"},{title:"New partnership with LINDA coin",info:"LINDA will be the first coin listed on the Social Send Platform. Great team and an awesome product in line. SEND will also be featured on their mobile staking/masternode application. Looking forward to our partnership!",url:"http://socialsend.info/feed/img/linda.jpg",link:"http://socialsend.io"}],"time":1539225686});
+});
+
+app.get('/feed/img/:filename', function(req,res){
+  var p = path.join(__dirname, 'feed/img/' + req.params.filename);
+  res.download(p);
+});
+//End Wallet Feed
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
