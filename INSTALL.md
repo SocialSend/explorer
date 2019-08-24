@@ -182,4 +182,37 @@ Add this line on /etc/crontab to start explorer when system startup
 
     @reboot cd /path/to/explorer && /usr/local/bin/forever start bin/cluster > /dev/null 2>&1
 
+### Automatic Bootstrap
+
+Install ZIP
+
+    sudo apt-get install -y zip
+
+Copy makeBootstrap to cron.daily folder
+
+    sudo cp makeBootstrap /etc/cron.daily
+
+Give run permission
+
+    sudo chown root:root /etc/cron.daily/makeBootstrap
+    sudo chmod +x /etc/cron.daily/makeBootstrap
+
+Create Dropbox folder
+
+    sudo mkdir /root/Dropbox
+
+Install Dropbox
+
+    cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+    ~/.dropbox-dist/dropboxd
+
+Visit the link and connect this computer with your dropbox account
+
+Download dropbox script
+
+    cd ~ && wget https://www.dropbox.com/download?dl=packages/dropbox.py -O dropbox.py
+    chmod +x dropbox.py
+    ./dropbox.py autostart y
+    ./dropbox.py start
+
 
