@@ -123,7 +123,7 @@ Where [SIZE] is an integer higher than the default.
 
 Create service file
 
-    sudo nano /lib/systemd/system/mongodb.service
+    sudo nano /lib/systemd/system/mongod.service
 
 File content:
 
@@ -159,7 +159,9 @@ File content:
 
 Install Service
 
-    sudo systemctl enable mongodb.service
+    sudo systemctl enable mongod.service
+    systemctl daemon-reload
+
 
 Start Service
 
